@@ -1,0 +1,17 @@
+# Node modules
+/node_modules/
+
+# Electron build outputs
+/dist/
+/out/
+
+# OS-specific binaries
+*.exe
+*.dmg
+*.AppImage
+
+# Logs
+*.log
+
+# Environment files (if any)
+.env
