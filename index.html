@@ -1,17 +1,99 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Client</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LoL Client Mockup</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background-color: #0b0c10;
+      color: #ffffff;
+    }
+
+    header {
+      background-color: #1f2833;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 24px;
+      margin: 0;
+    }
+
+    nav button {
+      background-color: #45a29e;
+      border: none;
+      padding: 10px 20px;
+      margin-left: 10px;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    nav button:hover {
+      background-color: #66fcf1;
+      color: #000;
+    }
+
+    main {
+      display: flex;
+      padding: 20px;
+    }
+
+    .sidebar {
+      width: 200px;
+      background-color: #1c1c1c;
+      padding: 15px;
+      border-right: 1px solid #333;
+    }
+
+    .content {
+      flex: 1;
+      padding: 15px;
+    }
+
+    .friend {
+      padding: 8px;
+      margin-bottom: 5px;
+      background-color: #0b0c10;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .friend:hover {
+      background-color: #45a29e;
+      color: #000;
+    }
+  </style>
 </head>
 <body>
-
-<div id="app">
+  <header>
     <h1>League Client</h1>
-    <button onclick="goPlay()">PLAY</button>
-</div>
+    <nav>
+      <button>Play</button>
+      <button>Store</button>
+      <button>Profile</button>
+    </nav>
+  </header>
 
-<script src="app.js"></script>
+  <main>
+    <div class="sidebar">
+      <h3>Friends</h3>
+      <div class="friend">Friend 1</div>
+      <div class="friend">Friend 2</div>
+      <div class="friend">Friend 3</div>
+    </div>
+
+    <div class="content">
+      <h2>Welcome to the League Client Mockup</h2>
+      <p>This is just a frontend layout. You can style it further to look closer to the real client.</p>
+    </div>
+  </main>
 </body>
 </html>
