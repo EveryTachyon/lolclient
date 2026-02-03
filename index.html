@@ -3,144 +3,212 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>League of Legends Client Mockup</title>
-
+<title>League Client Mock</title>
 <style>
-
-/* GLOBAL RESET */
-* {
+  body {
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* BODY */
-body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    background-color: #0a0b0e;
+    font-family: Arial, sans-serif;
+    background-color: #0d111f;
     color: #fff;
-    height: 100vh;
-    overflow: hidden;
-}
-
-/* BACKGROUND GRADIENT */
-.background {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(135deg, #000, #1b1c22);
-    z-index: -1;
-}
-
-/* HEADER */
-.header {
-    height: 70px;
-    background: #11151c;
+  }
+  /* Top nav */
+  .top-nav {
     display: flex;
     align-items: center;
-    padding: 0 30px;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.08);
-}
-
-.header .logo {
-    font-size: 28px;
-    font-weight: bold;
-    color: #d3a342;
-    letter-spacing: 1px;
-    margin-right: 50px;
-}
-
-.header .menu {
-    display: flex;
-    gap: 25px;
-}
-
-.header .menu div {
-    font-size: 18px;
+    background: #1b1f2b;
+    padding: 10px 20px;
+  }
+  .top-nav button {
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 16px;
+    margin-right: 20px;
     cursor: pointer;
-    padding: 8px 10px;
-}
+  }
+  .top-nav button.active {
+    color: #fff;
+    font-weight: bold;
+  }
+  .account-info {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 14px;
+  }
 
-.header .menu div:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-}
-
-/* MAIN SCREEN */
-.main {
+  /* Layout */
+  .container {
+    display: flex;
+    height: calc(100vh - 50px);
+  }
+  /* Sidebar */
+  .sidebar {
+    width: 220px;
+    background: #171b2e;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: calc(100vh - 140px);
-    text-align: center;
-}
-
-.main h1 {
-    font-size: 64px;
-    font-weight: bold;
-    color: #d3a342;
-    margin-bottom: 15px;
-}
-
-.main p {
-    font-size: 18px;
-    opacity: 0.8;
-    max-width: 600px;
-}
-
-/* FOOTER BUTTONS */
-.footer {
-    height: 70px;
-    background: #11151c;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    border-top: 2px solid rgba(255, 255, 255, 0.08);
-}
-
-.footer button {
-    background-color: #c59f2f;
+    padding: 10px;
+  }
+  .sidebar button {
+    background: none;
     border: none;
-    padding: 12px 30px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #0a0b0e;
+    color: #aaa;
+    padding: 12px;
+    text-align: left;
+    font-size: 14px;
     cursor: pointer;
-    border-radius: 6px;
-    transition: 0.2s;
-}
+    margin-bottom: 5px;
+  }
+  .sidebar button.active {
+    color: #fff;
+    font-weight: bold;
+    background: #2a2f45;
+    border-radius: 5px;
+  }
 
-.footer button:hover {
-    background-color: #e1b944;
-}
+  /* Main content */
+  .main {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  .section-title {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  .season-info {
+    background: #1b1f2b;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
 
+  /* Friends list */
+  .friends-list {
+    width: 220px;
+    background: #171b2e;
+    padding: 10px;
+    overflow-y: auto;
+  }
+  .friend {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  .friend-status {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+  .online { background: #0f0; }
+  .offline { background: #555; }
+
+  /* Buttons panel */
+  .panel-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .panel-buttons button {
+    padding: 8px 12px;
+    background: #2a2f45;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+  }
 </style>
 </head>
 <body>
 
-<div class="background"></div>
+<!-- Top Nav -->
+<div class="top-nav">
+  <button class="active">Play</button>
+  <button>League</button>
+  <button>TFT</button>
+  <button>LoR</button>
+  <div class="account-info">
+    <span>everygrunt</span>
+    <span>Level 183</span>
+    <span>Online</span>
+    <span>0 RP / 65.8K BE</span>
+  </div>
+</div>
 
-<div class="header">
-    <div class="logo">LEAGUE CLIENT</div>
-    <div class="menu">
-        <div>Home</div>
-        <div>Play</div>
-        <div>Collection</div>
-        <div>Profile</div>
-        <div>Store</div>
-        <button>Play</button>
-        <button>Settings</button>
-        <button>Logout</button>
+<div class="container">
+  <!-- Left Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <button class="active" onclick="showSection('demacia')">Demacia Rising</button>
+    <button onclick="showSection('viego')">Revenant Reign: Viego</button>
+    <button onclick="showSection('skins')">Aegis Frame & Battle Academia Skins</button>
+    <button onclick="showSection('spearhead')">Spearhead</button>
+    <button onclick="showSection('aram')">ARAM: Mayhem</button>
+    <button onclick="showSection('demacia-skins')">Demacia Skins</button>
+    <button onclick="showSection('ranked')">Ranked</button>
+    <button onclick="showSection('patch')">Patch Notes</button>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main" id="main">
+    <div class="section-title">Demacia Rising</div>
+    <div class="season-info" id="seasonInfo">
+      <p>Season 1 - Act I</p>
+      <p>Dawn breaks on the first season of 2026: For Demacia. Take your stand, defend the light, and fight the good fight.</p>
+      <div class="panel-buttons">
+        <button>View Season Pass</button>
+        <button>Rewards</button>
+      </div>
     </div>
+  </div>
+
+  <!-- Friends List -->
+  <div class="friends-list">
+    <div class="friend"><div class="friend-status online"></div>Wagana</div>
+    <div class="friend"><div class="friend-status offline"></div>Ofer</div>
+    <div class="friend"><div class="friend-status offline"></div>SkyWisy</div>
+    <div class="friend"><div class="friend-status online"></div>TLK GUILLE</div>
+    <div class="friend"><div class="friend-status offline"></div>antbdy</div>
+    <div class="friend"><div class="friend-status offline"></div>Arlecchino</div>
+    <div class="friend"><div class="friend-status offline"></div>Ayaan360</div>
+  </div>
 </div>
 
-<div class="main">
-    <h1>Welcome to League</h1>
-    <p>League of Legends client mockup interface built only with HTML and CSS. This is a visual clone and contains no game backend.</p>
-</div>
+<script>
+  // Mock sections content
+  const sections = {
+    demacia: "Season 1 - Act I\nDawn breaks on the first season of 2026: For Demacia. Take your stand, defend the light, and fight the good fight.",
+    viego: "Revenant Reign: Viego content goes here with mock rewards and info.",
+    skins: "Aegis Frame & Battle Academia Skins information.",
+    spearhead: "Spearhead missions and rewards information.",
+    aram: "ARAM: Mayhem event details and special missions.",
+    'demacia-skins': "List of available Demacia Skins and their descriptions.",
+    ranked: "Ranked mode info, leaderboards, and rewards.",
+    patch: "Patch Notes mock data: new balance changes, bug fixes, and events."
+  };
 
+  function showSection(section) {
+    // Update sidebar active
+    document.querySelectorAll('.sidebar button').forEach(btn => btn.classList.remove('active'));
+    document.querySelector(`[onclick="showSection('${section}')"]`).classList.add('active');
 
+    // Update main content
+    const main = document.getElementById('main');
+    main.innerHTML = `
+      <div class="section-title">${section.replace(/-/g,' ')}</div>
+      <div class="season-info">
+        <p>${sections[section]}</p>
+        <div class="panel-buttons">
+          <button>View Season Pass</button>
+          <button>Rewards</button>
+        </div>
+      </div>
+    `;
+  }
+</script>
 
 </body>
 </html>
