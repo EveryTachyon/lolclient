@@ -4,7 +4,12 @@
   "description": "League-style desktop client",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "db:init": "node scripts/init-db.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "mysql2": "^3.11.3"
   },
   "devDependencies": {
     "electron": "^30.5.1"

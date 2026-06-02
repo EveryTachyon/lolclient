@@ -5,10 +5,22 @@ It includes play queue UI, social panel, and full data sections for MVP/database
 
 ## How to start
 
+1. Install and start MySQL locally.
+2. Copy env file and set your password:
+
+```bash
+copy .env.example .env
+```
+
+3. Install dependencies and initialize database:
+
 ```bash
 npm install
+npm run db:init
 npm start
 ```
+
+If MySQL is unavailable, the client still starts with fallback in-memory data.
 
 ## Client parts (all included)
 
@@ -30,12 +42,20 @@ npm start
 - `index.html` - app layout/shell
 - `style.css` - full client theme/styles
 - `app.js` - client logic, routing, data, queue timer
+- `db/` - MySQL config, connection, queries
+- `database/` - SQL schema + seed files
+- `scripts/init-db.js` - database setup script
 - `CLIENT_SPEC.md` - full crafted MVP/database/seosed specification
 
-## Andmebaasi kirjeldus (MVP)
+## Andmebaasi kirjeldus (MySQL)
 
-Current implementation uses in-memory data in `app.js`.
-Production recommendation: backend API + PostgreSQL database.
+Database engine: **MySQL** (`lolclient` schema).
+
+- `database/schema.sql` - table definitions
+- `database/seed.sql` - starter data
+- `db/connection.js` - mysql2 pool
+- `db/queries.js` - client data queries
+- `scripts/init-db.js` - create DB + seed
 
 ### Suggested tables
 

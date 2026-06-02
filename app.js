@@ -1,4 +1,6 @@
-const data = {
+const { ipcRenderer } = require("electron");
+
+const fallbackData = {
   profile: {
     name: "EveryTachyon",
     level: 143,
@@ -45,8 +47,11 @@ const data = {
     { name: "Qofer", status: "away", game: "Riot Mobile" },
     { name: "Tinpitthar", status: "offline", game: "Riot Mobile" },
     { name: "topelt karises", status: "away", game: "Away" }
-  ]
+  ],
+  dbConnected: false
 };
+
+let data = { ...fallbackData };
 
 const views = {
   play: () => `
@@ -103,13 +108,14 @@ const views = {
     </section>
   `,
 
-  database: () => `
-    <section class="screen">
+    database: () => `
+      <section class="screen">
       <h2 class="screen-title">Andmebaasi kirjeldus</h2>
       <div class="card">
         <h3>Kus andmebaas?</h3>
-        <p>Praegu kasutab client mock JSON andmeid app.js failis (in-memory MVP).</p>
-        <p>Tootmises soovitus: backend API + PostgreSQL.</p>
+        <p>Andmebaas: <strong>MySQL</strong> (${data.dbConnected ? "connected" : "not connected, fallback data"}).</p>
+        <p>Host: localhost, database: <code>lolclient</code></p>
+        <p>Init command: <code>npm run db:init</code></p>
       </div>
       <div class="card">
         <h3>Tabelid</h3>
@@ -276,7 +282,19 @@ function startQueueTimer() {
   }, 1000);
 }
 
-function boot() {
+async function loadDataFromDatabase() {
+  try {
+    const loaded = await ipcRenderer.invoke("db:get-client-data");
+    if (loaded) {
+      data = loaded;
+    }
+  } catch (error) {
+    console.warn("Could not load MySQL data:", error.message);
+  }
+}
+
+async function boot() {
+  await loadDataFromDatabase();
   renderSocialPanel();
   bindNav();
   render("play");
