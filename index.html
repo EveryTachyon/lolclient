@@ -1,214 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>League Client Mock</title>
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #0d111f;
-    color: #fff;
-  }
-  /* Top nav */
-  .top-nav {
-    display: flex;
-    align-items: center;
-    background: #1b1f2b;
-    padding: 10px 20px;
-  }
-  .top-nav button {
-    background: none;
-    border: none;
-    color: #aaa;
-    font-size: 16px;
-    margin-right: 20px;
-    cursor: pointer;
-  }
-  .top-nav button.active {
-    color: #fff;
-    font-weight: bold;
-  }
-  .account-info {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    font-size: 14px;
-  }
-
-  /* Layout */
-  .container {
-    display: flex;
-    height: calc(100vh - 50px);
-  }
-  /* Sidebar */
-  .sidebar {
-    width: 220px;
-    background: #171b2e;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-  }
-  .sidebar button {
-    background: none;
-    border: none;
-    color: #aaa;
-    padding: 12px;
-    text-align: left;
-    font-size: 14px;
-    cursor: pointer;
-    margin-bottom: 5px;
-  }
-  .sidebar button.active {
-    color: #fff;
-    font-weight: bold;
-    background: #2a2f45;
-    border-radius: 5px;
-  }
-
-  /* Main content */
-  .main {
-    flex: 1;
-    padding: 20px;
-    overflow-y: auto;
-  }
-  .section-title {
-    font-size: 22px;
-    margin-bottom: 10px;
-  }
-  .season-info {
-    background: #1b1f2b;
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-  }
-
-  /* Friends list */
-  .friends-list {
-    width: 220px;
-    background: #171b2e;
-    padding: 10px;
-    overflow-y: auto;
-  }
-  .friend {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    font-size: 14px;
-  }
-  .friend-status {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    margin-right: 8px;
-  }
-  .online { background: #0f0; }
-  .offline { background: #555; }
-
-  /* Buttons panel */
-  .panel-buttons {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-  }
-  .panel-buttons button {
-    padding: 8px 12px;
-    background: #2a2f45;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    color: #fff;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>League Client Full MVP</title>
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-
-<!-- Top Nav -->
-<div class="top-nav">
-  <button class="active">Play</button>
-  <button>League</button>
-  <button>TFT</button>
-  <button>LoR</button>
-  <div class="account-info">
-    <span>everygrunt</span>
-    <span>Level 183</span>
-    <span>Online</span>
-    <span>0 RP / 65.8K BE</span>
-  </div>
-</div>
-
-<div class="container">
-  <!-- Left Sidebar -->
-  <div class="sidebar" id="sidebar">
-    <button class="active" onclick="showSection('demacia')">Demacia Rising</button>
-    <button onclick="showSection('viego')">Revenant Reign: Viego</button>
-    <button onclick="showSection('skins')">Aegis Frame & Battle Academia Skins</button>
-    <button onclick="showSection('spearhead')">Spearhead</button>
-    <button onclick="showSection('aram')">ARAM: Mayhem</button>
-    <button onclick="showSection('demacia-skins')">Demacia Skins</button>
-    <button onclick="showSection('ranked')">Ranked</button>
-    <button onclick="showSection('patch')">Patch Notes</button>
-  </div>
-
-  <!-- Main Content -->
-  <div class="main" id="main">
-    <div class="section-title">Demacia Rising</div>
-    <div class="season-info" id="seasonInfo">
-      <p>Season 1 - Act I</p>
-      <p>Dawn breaks on the first season of 2026: For Demacia. Take your stand, defend the light, and fight the good fight.</p>
-      <div class="panel-buttons">
-        <button>View Season Pass</button>
-        <button>Rewards</button>
+  <div class="shell">
+    <header class="topbar">
+      <div class="left">
+        <div class="logo">L</div>
+        <div class="party-pill">PARTY</div>
+        <nav class="game-nav">
+          <button class="game-tab active" type="button">LEAGUE</button>
+          <button class="game-tab" type="button">TFT</button>
+          <button class="game-tab" type="button">LoR</button>
+        </nav>
       </div>
+      <div class="right">
+        <div class="currency">0 RP</div>
+        <div class="currency">7921 BE</div>
+        <div class="profile">
+          <div class="level">143</div>
+          <div>
+            <div class="name">EveryTachyon</div>
+            <div class="state">In Queue</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="workspace">
+      <aside class="nav-rail">
+        <button class="rail-btn active" data-view="play">Play</button>
+        <button class="rail-btn" data-view="overview">MVP</button>
+        <button class="rail-btn" data-view="database">Andmebaas</button>
+        <button class="rail-btn" data-view="relations">Seosed</button>
+        <button class="rail-btn" data-view="summoners">Summoners</button>
+        <button class="rail-btn" data-view="champions">Champions</button>
+        <button class="rail-btn" data-view="matches">Match History</button>
+        <button class="rail-btn" data-view="runes">Rune Pages</button>
+        <button class="rail-btn" data-view="ranks">Ranks</button>
+      </aside>
+
+      <main class="main" id="main-content"></main>
+
+      <aside class="social" id="social-panel"></aside>
     </div>
   </div>
 
-  <!-- Friends List -->
-  <div class="friends-list">
-    <div class="friend"><div class="friend-status online"></div>Wagana</div>
-    <div class="friend"><div class="friend-status offline"></div>Ofer</div>
-    <div class="friend"><div class="friend-status offline"></div>SkyWisy</div>
-    <div class="friend"><div class="friend-status online"></div>TLK GUILLE</div>
-    <div class="friend"><div class="friend-status offline"></div>antbdy</div>
-    <div class="friend"><div class="friend-status offline"></div>Arlecchino</div>
-    <div class="friend"><div class="friend-status offline"></div>Ayaan360</div>
-  </div>
-</div>
-
-<script>
-  // Mock sections content
-  const sections = {
-    demacia: "Season 1 - Act I\nDawn breaks on the first season of 2026: For Demacia. Take your stand, defend the light, and fight the good fight.",
-    viego: "Revenant Reign: Viego content goes here with mock rewards and info.",
-    skins: "Aegis Frame & Battle Academia Skins information.",
-    spearhead: "Spearhead missions and rewards information.",
-    aram: "ARAM: Mayhem event details and special missions.",
-    'demacia-skins': "List of available Demacia Skins and their descriptions.",
-    ranked: "Ranked mode info, leaderboards, and rewards.",
-    patch: "Patch Notes mock data: new balance changes, bug fixes, and events."
-  };
-
-  function showSection(section) {
-    // Update sidebar active
-    document.querySelectorAll('.sidebar button').forEach(btn => btn.classList.remove('active'));
-    document.querySelector(`[onclick="showSection('${section}')"]`).classList.add('active');
-
-    // Update main content
-    const main = document.getElementById('main');
-    main.innerHTML = `
-      <div class="section-title">${section.replace(/-/g,' ')}</div>
-      <div class="season-info">
-        <p>${sections[section]}</p>
-        <div class="panel-buttons">
-          <button>View Season Pass</button>
-          <button>Rewards</button>
-        </div>
-      </div>
-    `;
-  }
-</script>
-
+  <script src="./app.js"></script>
 </body>
 </html>
